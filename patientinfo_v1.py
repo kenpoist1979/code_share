@@ -6,7 +6,7 @@
 # 
 # db = mysql.connector.connect(host = "localhost", 
                                 # username = "admin@localhost", 
-                                # password = "R6!j33h9c6", 
+                                # password =  
                                 # database = "patient_info")
 # 
 # cur = db.cursor()
