@@ -1,6 +1,6 @@
 Hi
 
-There are 4 example files for this portfolio. 
+There are 5 example files for this portfolio. 
 
 1. A terraform main file for a non-profit AWS cloud infrastructure I'm building.
 
@@ -8,4 +8,6 @@ There are 4 example files for this portfolio.
 
 3. A non-profit student database I built with python with mongodb as the backend.
 
-4. A trading api customize for private testing.
+4. A trading api customize for private backtesting and future trading journey.
+
+5. Weather API that will ask for city, state or region, and country. These are required first, if the longitude and latitude of the location isn't known. Next the code will input those coordinates and output the weather for that location.
