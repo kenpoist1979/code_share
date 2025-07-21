@@ -7,33 +7,33 @@ country_code = input("In which country? ")
 state_region = input("And which state or region? ")
 api_key = input("Enter your OpenWeatherMap API key:")
 scripped_space = api_key.strip()
-
 url_s = f"http://api.openweathermap.org/geo/1.0/direct?q={city},{state_region},{country_code}&appid={scripped_space}"
 
 find_coord = requests.get(url_s) #q={city},{state_region},{country_code}&appid={scripped_space}")
 
 if find_coord.status_code == 200:
     final_coord = find_coord.json()
-    if final_coord:
-        print(f'\n===================================================')
-        print(f'Coordinates for {city.casefold()}, {state_region.upper()}:')
-        print(f'===================================================\n')
-        print(f"Latitude: {final_coord[0]['lat']}")
-        print(f"Longitude: {final_coord[0]['lon']}\n")
+    if not final_coord:
+        print(f"Error: No coordinates found for {city}, {state_region}, {country_code}. Please check your inputs.")
+        exit()
+   
+    print(f'\n===================================================')
+    print(f'Coordinates for {city.casefold()}, {state_region.upper()}:'.upper())
+    print(f'===================================================\n')
+    print(f"Latitude: {final_coord[0]['lat']}")
+    print(f"Longitude: {final_coord[0]['lon']}\n")
 
 
-print(f'LOADING WEATHER DATA FOR {city.upper()}, {state_region.upper()}, {country_code.upper()}...')
 
+print(f'LOADING WEATHER DATA FOR {city.upper()}, {state_region.upper()}, {country_code.upper()}...'.upper())
 sleep(5)
-
 url_l = f"http://api.openweathermap.org/data/2.5/weather?lat={final_coord[0]['lat']}&lon={final_coord[0]['lon']}&appid={scripped_space}&units=imperial"
-
 response = requests.get(url_l) #lat={final_coord[0]['lat']}&lon={final_coord[0]['lon']}&appid={scripped_space}&units=imperial")
 
 if response.status_code == 200:
     # data = response.json()
     print(f'\n===================================================')
-    print(f'Weather data for {city.casefold()}, {state_region.upper()}:')
+    print(f'Weather data for {city.casefold()}, {state_region.upper()}:'.upper())
     print(f'===================================================\n')
 
 for k, v in response.json().items():
