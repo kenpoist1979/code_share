@@ -33,7 +33,7 @@ sleep(5)
 url_l = f"http://api.openweathermap.org/data/2.5/weather?lat={final_coord[0]['lat']}&lon={final_coord[0]['lon']}&appid={scripped_space}&units=imperial"
 
 response = requests.get(url_l) #lat={final_coord[0]['lat']}&lon={final_coord[0]['lon']}&appid={scripped_space}&units=imperial")
-print(f'response')
+
 if response.status_code == 200:
     # data = response.json()
     print(f'\n===================================================')
